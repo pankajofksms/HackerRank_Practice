@@ -18,7 +18,7 @@ public class Linked_List_Duplicate_Removal
     public static Linked_Node removeDuplicates(Linked_Node head) {
 
         //Write your code here
-        Linked_Node to_free;  
+     
 
       if (head == null)  
           return null;  
@@ -29,7 +29,6 @@ public class Linked_List_Duplicate_Removal
           /* Compare head node with next node */
           if (head.data == head.next.data)  
           {  
-              to_free = head.next;  
               head.next = head.next.next; 
               removeDuplicates(head); 
           }  
