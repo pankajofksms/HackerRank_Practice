@@ -1,16 +1,37 @@
 package com.practice.thirtyDaysCode;
 
+import java.util.LinkedList;
 import java.util.Scanner;
 
-public class HeightOfTree {
+public class LevelOrderTraversal {
 
-	public static int getHeight(Node root) {
+	static LinkedList<Node> queue = new LinkedList<>();
+
+	public static void enqueue(Node n) {
+		queue.add(n);
+	}
+
+	public static Node dequeue() {
+		return queue.removeFirst();
+	}
+
+	public static void display(Node n) {
+		System.out.print(n.data + " ");
+	}
+
+	static void levelOrder(Node root) {
 		// Write your code here
 		if (root == null)
-			return -1;
-		int leftHeight = getHeight(root.left);
-		int rightHeight = getHeight(root.right);
-		return Math.max(leftHeight, rightHeight) + 1;
+			return;
+		enqueue(root);
+		while (!queue.isEmpty()) {
+			Node current = dequeue();
+			display(current);
+			if (current.left != null)
+				enqueue(current.left);
+			if (current.right != null)
+				enqueue(current.right);
+		}
 	}
 
 	public static Node insert(Node root, int data) {
@@ -37,16 +58,7 @@ public class HeightOfTree {
 			int data = sc.nextInt();
 			root = insert(root, data);
 		}
-		int height = getHeight(root);
-		System.out.println(height);
+		levelOrder(root);
 	}
-}
-class Node {
-	Node left, right;
-	int data;
 
-	Node(int data) {
-		this.data = data;
-		left = right = null;
-	}
 }
