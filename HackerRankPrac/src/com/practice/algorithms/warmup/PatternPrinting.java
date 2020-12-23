@@ -1,6 +1,8 @@
 package com.practice.algorithms.warmup;
 
-import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
 /* 
  * https://www.hackerrank.com/challenges/staircase/problem
@@ -9,9 +11,15 @@ import java.util.Scanner;
 
 public class PatternPrinting {
 	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
-		int number = scan.nextInt();
-		printPattern(number);
+		/*
+		 * Scanner scan = new Scanner(System.in); int number = scan.nextInt();
+		 * printPattern(number);
+		 */
+		
+		Map<Integer,Integer> map = new TreeMa<>();
+		for(Entry<Integer,Integer> en : map.entrySet()) {
+			en.ge
+		}
 		
 	}
 	
